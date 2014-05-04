@@ -1,16 +1,7 @@
-Install Node.js
+To get the presentation working locally:
 
-Install Grunt
+1- Install Node.js
 
-Clone the reveal.js repository
+2- Install Grunt
 
-$ git clone https://github.com/hakimel/reveal.js.git
-Navigate to the reveal.js folder
-
-$ cd reveal.js
-Install dependencies
-
-$ npm install
-Serve the presentation and monitor source files for changes
-
-$ grunt serve
+3- npm install
