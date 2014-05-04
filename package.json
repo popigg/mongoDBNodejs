@@ -5,7 +5,7 @@
   "main": "reveal.js/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd reveal.js && npm install"
+    "postinstall": "cd reveal.js && npm install && ../node_modules/.bin/grunt serve"
   },
   "repository": {
     "type": "git",
