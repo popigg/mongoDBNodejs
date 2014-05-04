@@ -28,7 +28,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<a href="?theme=beige#/themes">Beige</a>
+					<a href="?theme=beige#/themes"></a>
 					<h1>What are MongoDB and NodeJS?</h1>
 					<ul>
 						<li>document-oriented</li>
@@ -42,67 +42,127 @@
 					<h2>CRUD operations</h2>
 
 					<img src="http://docs.mongodb.org/manual/_images/crud-annotated-mongodb-remove.png" />
+					<img src="http://docs.mongodb.org/manual/_images/crud-annotated-mongodb-remove.png" />
+					<img src="http://docs.mongodb.org/manual/_images/crud-annotated-mongodb-remove.png" />
 											
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
 
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						Include notes si quieres mostrarlas en la presentacion.
 					</aside>
 				</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>BSR Join us Facebook group</h2>
+						<h2>Querying Arrays</h2>
 						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
+							Dot Rotation <a href="#" class="navigate-down">down</a>.
 						</p>
 						<a href="#" class="image navigate-down">
 							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
 						</a>
 					</section>
 					<section>
-						<h2>Run in Tiergarten</h2>
-						<p>Press down or up to navigate.</p>
+						<h2>1st example code</h2>
+						<p></p>
 					</section>
 					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
+						<h2>2nd example code</h2>
+						<p></p>
 						<a class="test" href="http://cornify.com">
 							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
 						</a>
 					</section>
 					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
+						<h2>3rd example code</h2>
+						<p></p>
 						<a href="#/2" class="image">
 							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
 						</a>
 					</section>
 				</section>
-
 				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
-					</p>
+						<h1>_id</h1>
+						<ul>
+							<li class="fragment"><code>required in every document</code></li>
+							<li class="fragment"><em>unique</em></li>
+							<li class="fragment"><em>if not detected under insertion -->automatic BSON ObjectId assigned</em></li>
+							<li class="fragment"><strong>customisable _id = 1, _id = 2, ….  or _id=dennis, _id = max, _id= marek …</strong></li>
+						</ul>
 				</section>
+				<section>
+						<h1>Update, save, findAndModify</h1>
+						<ul>
+							<li class="fragment"><code>update</code></li>
+							<li class="fragment"><em>(multi) and specific ($set)</em></li>
+							<li class="fragment"><em>save</em></li>
+							<li class="fragment"><strong>(one doc), complete doc</strong></li>
+							<li class="fragment"><strong>upsert ( will save a doc if doesn’t exist)</strong></li>
+							<li class="fragment"><strong>multi ( update multiple docs)</strong></li>
+
+						</ul>
+				</section>
+
+				<!--falta una slide-->
+				<section>
+					<h2>DeNormalization</h2>
+					<pre><code data-trim contenteditable>
+
+					{
+   _id: "joe",
+   name: "Joe Bookreader"
+}
+
+{
+   patron_id: "joe",
+   street: "123 Fake Street",
+   city: "Faketon",
+   state: "MA",
+   zip: "12345"
+}
+
+{
+   patron_id: "joe",
+   street: "1 Some Other Street",
+   city: "Boston",
+   state: "MA",
+   zip: "12345"
+}
+
+{
+   _id: "joe",
+   name: "Joe Bookreader",
+   addresses: [
+                {
+                  street: "123 Fake Street",
+                  city: "Faketon",
+                  state: "MA",
+                  zip: "12345"
+                },
+                {
+                  street: "1 Some Other Street",
+                  city: "Boston",
+                  state: "MA",
+                  zip: "12345"
+                }
+              ]
+ }
+
+Indexes
+_id
+db.users.ensureIndex({name: 1});
+multikey index 
+{
+  "_id" : ObjectId("..."),
+  "name" : "Warm Weather",
+  "author" : "Steve",
+  "tags" : [ "weather", "hot", "record", "april" ]
+}
+
+					</code></pre>
+					<p>“tags” would be a multikey index.</p>
+				</section>
+
 
 				<section>
 					<h2>Point of View</h2>
