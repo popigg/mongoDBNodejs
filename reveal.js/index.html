@@ -39,6 +39,8 @@
 						<li>free Schema</li>
 						<li>BSON objects (binary represent JSON)</li>
 						<li>Provides a shell</li>
+						<li>Installation friendly</li>
+						<li class="fragment roll-in">Admin friendly???</li>
 					</ul>
 				</section>
 				<section>
@@ -110,35 +112,81 @@
 					<h1>shell</h1>
 				</section>
 				<section>
-					<h2>Indexes</h2>
-					db.users.ensureIndex({email: 1});
-					<p>multikey index						
-<pre><code>{
-  "_id" : ObjectId("..."),
-  "name" : "Warm Weather",
-  "author" : "Steve",
-  "tags" : [ "weather", "hot", "record", "april" ]
-}</code></pre>
-“tags” would be a multikey index.
-<p>
-				</section>
-				<section>
 					<h2>Aggregation Framework</h2>
 					pipeline
 				</section>
+				<section>
+					<h2>Indexes</h2>
+					<ul>
+						<li class="fragment">
+							single field
+<pre><code data-trim>db.users.ensureIndex({email: 1})</code></pre>
+						</li>
+						<li class="fragment">
+							compound
+<pre><code data-trim>db.users.ensureIndex({email: 1, created_at: -1})</code></pre>
+						</li>
+					
+						<li class="fragment">
+						multikey
+<pre><code data-trim>{
+   "_id" : ObjectId("..."),
+   "name" : "Warm Weather",
+   "author" : "Steve",
+   "tags" : [ "weather", "hot", "record", "april" ]
+}</code></pre>
+<pre><code>db.forecasts.ensureIndex({tags: 1})</code></pre>
+						</li>
+						<li class="fragment">
+							geospatial
+						</li>
+						<li class="fragment">
+							text
+						</li>
+						<li class="fragment">
+							hashed
+						</li>
+					</ul>						
+				</section>				
 				<section>
 					<section>
 						<img src="http://nodejs.org/images/logos/nodejs-1024x768.png">
 					</section>
 					<section>
-						Nodejs Driver native
-						connect
-						use
-						callbacks
-						mongoose (shema)
-						mongoskin (promises)
-					</secton>	
+						<h2>how to use it?</h2>
+						<ul>
+							<li>Nodejs Driver native</li>
+							<li>connect / disconnect</li>
+							<li>use serveral DBs</li>
+							<li>how to deal callbacks</li>
+							<li>mongoose (schema wise approach)</li>
+							<li>mongoskin (promises way)</li>
+						</ul>
+					</section>	
+				</section>
+				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+					<h3>Stop talking. Wanna see your code!!!</h3>
+				</section>	
+				<section>
+					<h1>replica set</h1>
 				</section>				
+				<section>
+					<h1>sharding</h1>
+				</section>			
+				<section>
+					<h3>links</h3>
+					<p><a href="http://docs.mongodb.org/manual/">http://docs.mongodb.org/manual/</a></p>
+					<p><a href="https://github.com/mongodb/node-mongodb-native">https://github.com/mongodb/node-mongodb-native</a></p>
+					<p>
+						Keep on eye to those guys at LarnBoost:<br />
+						<a href="https://github.com/LearnBoost">https://github.com/LearnBoost</a>
+					</p>
+					<p><a href="https://github.com/LearnBoost/mongoose">https://github.com/LearnBoost/mongoose</a></p>
+					<p><a href="https://github.com/LearnBoost/kue">https://github.com/LearnBoost/kue</a></p>
+					<p><a href="https://github.com/scttnlsn/monq">https://github.com/scttnlsn/monq</a></p>
+					<p><a href="http://mean.io/">http://mean.io/</a></p>
+
+				</section>
 			</div>
 
 		</div>
