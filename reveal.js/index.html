@@ -29,7 +29,7 @@
 			<div class="slides">
 				<section>
 					<h2>Introduction</h2>
-					<img src="http://webandbeer.com.ar/wp-content/uploads/2013/11/nodemango1.jpg" />											
+					<img src="http://coenraets.org/blog/wp-content/uploads/2012/10/nodemango1.jpg" />											
 				</section>					
 				<section>					
 					<h2>What is MongoDB?</h2>
@@ -41,32 +41,103 @@
 						<li>Provides a shell</li>
 					</ul>
 				</section>
-				<section>					
-					<h1>CRUD operations</h1>
-					<ul>
-						<li class="fragment">insert</li>						
-						<li class="fragment">find/ findOne</li>
-						<li class="fragment">update/ save </li>
-						<li class="fragment">remove</li>
-					</ul>
+				<section>
+					<section>					
+						<h1>CRUD operations</h1>
+						<ol>
+							<li class="fragment">insert</li>						
+							<li class="fragment">find/ findOne</li>
+							<li class="fragment">update/ save </li>
+							<li class="fragment">remove</li>
+						</ul>
+					</section>
+					<section data-background="#BCF5A9">
+						<h2 style="color:#000">insert</h2>
+						<img src="http://docs.mongodb.org/manual/_images/crud-annotated-mongodb-insert.png">
+					</section>
+					<section data-background="#BCF5A9">
+						<h2 style="color:#000">read</h2>
+						<img src="http://docs.mongodb.org/manual/_images/crud-query-w-projection-stages.png">
+					</section>
+					<section data-background="#BCF5A9">
+						<h2 style="color:#000">update</h2>
+						<img src="http://docs.mongodb.org/manual/_images/crud-annotated-mongodb-update.png">
+						<p style="color: red">multi : true</p>
+						<img src="http://docs.mongodb.org/manual/_images/crud-annotated-sql-update.png">
+					</section>	
+					<section data-background="#BCF5A9">
+						<h2 style="color:#000">remove</h2>
+						<img src="http://docs.mongodb.org/manual/_images/crud-annotated-mongodb-remove.png">						
+					</section>					
 				</section>
 				<section>					
-					<h2>Operators <code>$</code></h2>
-					<ul>
-						<li><code>$or $and</code></li>						
-						<li><code>$exist</code></li>
-						<li><code>$gt $lt</code></li>
-						<li><code>$ne</code></li>
-					</ul>
+					<h2>Operators <code>$</code></h2>				
+						<code>$or, $and, $exist, $gt, $lt, $ne ...</code>
+
+<pre><code>db.grades.find ( 
+{ $or: [ { "scores.type": "exam" }, { "scores.type": "homework" } ] },
+{student_id: 1, _id: 0} 
+)</code></pre>
+					
 				</section>				
 				<section>
-						<h2>_id</h2>
+						<h2>BSON ObjectId (_id)</h2>
 						<ul>
-							<li class="fragment">required in every document</li>
-							<li class="fragment">unique</li>
-							<li class="fragment">when insertion not detected automatic BSON ObjectId <strong>generated</strong></li>
-							<li class="fragment">customisable <br /><code>_id = 1, _id = 2, …, id = n </code> <br />or <br /><code>_id = dennis, _id = max, _id = marek</cod></li>
+							<li class="fragment">Every doc has ONE</li>
+							<li class="fragment">Unique</li>
+							<li class="fragment">Will be <span>generated</strong> if it doesn't find any</li>
+							<li class="fragment">customisable <br />
+<pre><code data-trim contenteditable>db.videos.insert(
+  {
+    _id: 13, 
+    style: "rock"
+    artist: "Enrique Bunbury"
+    title: ""
+  } 	
+)</code></pre>
+							</li>
 						</ul>
+				</section>
+				<section>
+					<h3>sort, skip, limit</h3>				
+<pre><code>db.grades.find( 
+{ "scores.type": "exam" }, { class_id: 1 } )
+.sort( { "scores.score" : 1 } )
+.skip(20)
+.limit(4)</code></pre>
+				</section>
+				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+					<h1>shell</h1>
+				</section>
+				<section>
+					<h2>Indexes</h2>
+					db.users.ensureIndex({email: 1});
+					<p>multikey index						
+<pre><code>{
+  "_id" : ObjectId("..."),
+  "name" : "Warm Weather",
+  "author" : "Steve",
+  "tags" : [ "weather", "hot", "record", "april" ]
+}</code></pre>
+“tags” would be a multikey index.
+<p>
+				</section>
+				<section>
+					<h2>Aggregation Framework</h2>
+					pipeline
+				</section>
+				<section>
+					<section>
+						<img src="http://nodejs.org/images/logos/nodejs-1024x768.png">
+					</section>
+					<section>
+						Nodejs Driver native
+						connect
+						use
+						callbacks
+						mongoose (shema)
+						mongoskin (promises)
+					</secton>	
 				</section>				
 			</div>
 
