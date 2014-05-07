@@ -177,19 +177,29 @@
 						<img src="http://nodejs.org/images/logos/nodejs-1024x768.png">
 					</section>
 					<section>
-						<h3>how to</h3>						
-						<ul>
-							<li>Nodejs Driver native</li>
-							<li>connect / disconnect</li>
-							<li>use serveral DBs</li>
-							<li>deal callbacks</li>
-							<li>mongoose (schema wise approach)</li>
-							<li>mongoskin (promises way)</li>
+						<h3>How to Start</h3>
+						<p class="fragment">
+							Driver for the language <br /> <pre class="fragment"><code>var mongo = require('mongodb');</code></pre>
+						</p>
+						<p class="fragment">
+							connect / disconect
+							<pre class="fragment"><code>var MongoClient = require('mongodb').MongoClient;
+MongoClient.connect('mongodb://127.0.0.1:27017/sot', function(err, db) {
+	db.close();
+});</code></pre>
+						</p>
+						<p class="fragment">
+							<span style="color: yellow">CALLBACKS</span>
+						</p>
+						<p class="fragment">Alternatives to native Driver</p>												
+						<ul>																												
+							<li class="fragment">mongoose (schema wise approach)</li>
+							<li class="fragment">mongoskin (wrapper using promises way)</li>
 						</ul>
 					</section>	
 				</section>
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-					<h3>Stop talking. Wanna see your code!!!</h3>
+				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">					
+					<img src="http://cdn.memegenerator.net/instances/500x/49541467.jpg">
 				</section>	
 				<section>
 					<h2>replica set</h2>
@@ -201,7 +211,7 @@
 					
 				</section>				
 				<section>
-					<h1>sharding</h1>
+					<h3>Sharding for another time</h3>
 				</section>			
 				<section>
 					<h3>links</h3>
@@ -215,10 +225,13 @@
 					<p><a href="https://github.com/LearnBoost/kue">https://github.com/LearnBoost/kue</a></p>
 					<p><a href="https://github.com/scttnlsn/monq">https://github.com/scttnlsn/monq</a></p>
 					<p><a href="http://mean.io/">http://mean.io/</a></p>
+					<p><a href="http://bookshare.u.qiniudn.com/node-js-the-right-way_p1_0.pdf">http://bookshare.u.qiniudn.com/node-js-the-right-way_p1_0.pdf (Node the right way)</a></p>
 				</section>
 				<section>
-					<p class="fragment fade-out">questions?</p>
-					<h1 class="fragment">Big Thanks for attending</h1>
+					<p>Questions?</p>
+				</section>
+				<section>					
+					<h1>Thanks for attending</h1>
 				</section>
 			</div>
 
