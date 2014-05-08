@@ -39,6 +39,8 @@
 						<li>free Schema</li>
 						<li>BSON objects (binary represent JSON)</li>
 						<li>Provides a shell</li>
+						<li>Quick Read</li>
+						<li>Easy Scalable (Big Data oriented)</li>
 						<li>Installation friendly</li>
 						<li class="fragment roll-in">Admin friendly???</li>
 					</ul>
@@ -84,10 +86,13 @@
 				</section>				
 				<section>
 						<h2>BSON ObjectId (_id)</h2>
-						<ul>
+						<ul>							
 							<li class="fragment">Every doc has ONE</li>
 							<li class="fragment">Unique</li>
-							<li class="fragment">Will be <span>generated</strong> if it doesn't find any</li>
+							<li class="fragment">Index by default</li>							
+							<li class="fragment">Will be <span>generated</strong> if it doesn't find any
+								<pre><code>"_id" : ObjectId("52715702d06e788432635a74"),</code></pre>
+							</li>
 							<li class="fragment">customizable<br />
 <pre><code data-trim contenteditable>db.videos.insert(
   {
