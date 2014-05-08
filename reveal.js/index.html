@@ -190,7 +190,14 @@
 							connect / disconect
 							<pre class="fragment"><code>var MongoClient = require('mongodb').MongoClient;
 MongoClient.connect('mongodb://127.0.0.1:27017/sot', function(err, db) {
-	db.close();
+  if(err) throw err;
+
+  db.collection('artists').findOne({name: 'Zoe'}, function(err, doc){
+    if(err) throw err;
+    console.log(doc);
+  });
+
+  db.close();
 });</code></pre>
 						</p>
 						<p class="fragment">
